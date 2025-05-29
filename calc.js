@@ -29,3 +29,36 @@ function operate (num1, num2, operation) {
     }
 }
 
+
+
+let numbers = [];
+const numberButtons = document.querySelectorAll(".num-button");
+numberButtons.forEach((numberButton) => {
+    numberButton.addEventListener("click", () => {
+        numbers.push(numberButton.textContent); 
+        changeDisplay(numbers)
+        
+
+    });
+});
+
+
+const operateButtons = document.querySelectorAll(".operate-button");
+operateButtons.forEach((operateButton) => {
+    operateButton.addEventListener("click", () => {
+        operator = operateButton.textContent;
+    })
+})
+
+
+function changeDisplay (numArray, operator) {
+    const display = document.querySelector("#display");
+    if (numArray[0] !== undefined) {
+        display.textContent = numArray[0];
+    }
+    if (numArray[1] !== undefined) {
+        
+        display.textContent = `${numArray[0]} ${numArray[1]}`;
+        
+    }
+}
